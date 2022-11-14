@@ -5,7 +5,7 @@ import requests
 from geopy.geocoders import Nominatim
 from timezonefinder import *
 from datetime import *
-import pyttsx3
+
 
 
 root = Tk()
@@ -27,13 +27,13 @@ def getWeather():
             #error message
              messagebox.showerror("Weather App","Invalid Entry")
         else:      
-            #extracting Data
+            #extracting Data from json 
             weather = weather_data.json()['weather'][0]['description']
             Condition = weather_data.json()['weather'][0]['main']
             temp = round(weather_data.json()['main']['temp'])
             humidity = round(weather_data.json()['main']['humidity'])
             wind= round(weather_data.json()['wind']['speed'])
-            #preassure = round(weather_data.json()['main']['preassure'])= 
+            #preassure = round(weather_data.json()['main']['preassure'])
             visibility = round(weather_data.json()['visibility'])
 
             t.config(text=(temp,"º"))
@@ -45,21 +45,9 @@ def getWeather():
             #p.config(text = preassure)
             v.config(text = visibility)
 
-            ##speak
-            engine = pyttsx3.init()
-            ##rate = engine.getProperty('rate')
-            ##engine.setProperty('rate', 125)
-            ##voice options 0 for male 1 for female
-            #voices = engine.getProperty('voices')
-            #engine.setProperty('voice', voices[0].id)
-
-            #engine.say("temperature in" + str(city) + "is," + str(temp) +" degrees celcius," + ",there is," + str(weather) + ", humidity is," + str(humidity) +"percent," + ",wind speed is," + str(wind) + " kilometers per hour," + "and visibility is " + str(visibility) + "meters")
-            #engine.runAndWait()
-
     except Exception as e:
+        #error messege
         messagebox.showerror("Weather App","Invalid Entry" +"\n Or" + "\nNo Internet Connection Available")
-        engine.say("error")
-        engine.runAndWait()
 
 Search_image = PhotoImage(file="search.png")
 myimage = Label(image = Search_image)
@@ -114,7 +102,5 @@ d = Label(text = "...",font=("arial",20,"bold"),bg = "#1ab5ef")
 d.place(x =450, y = 430)
 v = Label(text = "...",font=("arial",20,"bold"),bg = "#1ab5ef")
 v.place(x =670, y = 430)
-
-
 
 root.mainloop()
