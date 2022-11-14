@@ -2,11 +2,7 @@ from tkinter import *
 from time import *
 from tkinter import messagebox
 import requests
-from geopy.geocoders import Nominatim
-from timezonefinder import *
 from datetime import *
-
-
 
 root = Tk()
 root.title("Weather App")
