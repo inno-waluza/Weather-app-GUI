@@ -1,3 +1,5 @@
+"""if you have cloned this code, it is advisable to create your own openweathermap account and generate your api keys.
+Because the ones used here may be cancelled by the author of the code. Thank you"""
 from tkinter import *
 from time import *
 from tkinter import messagebox
